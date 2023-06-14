@@ -1,6 +1,6 @@
 module git.sokolov.io/go-modules/k6-redis
 
-go 1.19
+go 1.17
 
 require go.k6.io/k6 v0.44.1
 
@@ -19,7 +19,7 @@ require (
 	github.com/onsi/gomega v1.27.8 // indirect
 	github.com/serenize/snaker v0.0.0-20201027110005-a7ad2135616e // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
-	github.com/spf13/afero v1.1.2 // indirect
+	github.com/spf13/afero v1.9.2 // indirect
 	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.9.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
