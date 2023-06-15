@@ -1,4 +1,4 @@
-module github.com/SmirnovND/k6-redis
+module github.com/SmirnovND/xk6-pubsub
 
 go 1.20
 

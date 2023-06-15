@@ -1,4 +1,4 @@
-package k6_redis
+package xk6_pubsub
 
 import (
 	"go.k6.io/k6/js/modules"
