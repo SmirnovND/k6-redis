@@ -18,6 +18,7 @@ type Message struct {
 
 // Redis is the k6 Redis extension
 type Redis struct{
+	Client *redis.Client
 }
 
 type Config struct {
@@ -25,13 +26,13 @@ type Config struct {
 	Port     string
 }
 
-func (r *Redis) SetConfig(cf Config) *redis.Client {
-	return redis.NewClient(&redis.Options{
+func (r *Redis) SetConfig(cf Config) {
+	r.Client = redis.NewClient(&redis.Options{
 		Addr: cf.Host + ":" + cf.Port,
 	})
 }
 
-func (r *Redis) Publish(Client *redis.Client, Message Message, chanel string) error {
+func (r *Redis) Publish(Message Message, chanel string) error {
 	var ctx = context.Background()
 
 	payload, err := json.Marshal(Message)
@@ -39,7 +40,7 @@ func (r *Redis) Publish(Client *redis.Client, Message Message, chanel string) er
 		return err
 	}
 
-	if err := Client.Publish(ctx, chanel, payload).Err(); err != nil {
+	if err := r.Client.Publish(ctx, chanel, payload).Err(); err != nil {
 		return err
 	}
 	
