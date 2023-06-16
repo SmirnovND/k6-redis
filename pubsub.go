@@ -26,7 +26,7 @@ type Config struct {
 	Port     string
 }
 
-func (r *Redis) SetConfig(cf gConfig) {
+func (r *Redis) SetConfig(cf Config) {
 	r.client = redis.NewClient(&redis.Options{
 		Addr: cf.Host + ":" + cf.Port,
 	})
