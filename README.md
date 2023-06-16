@@ -1,1 +1,1 @@
-# k6-redis
+# k6-redis-pubsub
