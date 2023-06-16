@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	modules.Register("k6/x/redis", new(Redis))
+	modules.Register("k6/x/pubsub", new(Redis))
 }
 
 type Message struct {
