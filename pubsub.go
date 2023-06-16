@@ -39,7 +39,7 @@ func (r *Redis) Publish(Client *redis.Client, Message Message, chanel string) er
 		return err
 	}
 
-	if err := r.client.Publish(ctx, chanel, payload).Err(); err != nil {
+	if err := Client.Publish(ctx, chanel, payload).Err(); err != nil {
 		return err
 	}
 	
