@@ -1,4 +1,4 @@
-package xk6_pubsub
+package pubsub
 
 import (
 	"context"
