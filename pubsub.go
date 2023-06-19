@@ -41,10 +41,16 @@ func (r *Redis) SetConfig(config map[string]interface{}) error {
 	return nil
 }
 
-func (r *Redis) Publish(Message Message, chanel string) error {
+func (r *Redis) Publish(message map[string]interface{}, chanel string) error {
+	msg := &Message{}
+	err := mapstructure.Decode(message, msg)
+	if err != nil {
+		return err
+	}
+	
 	var ctx = context.Background()
 
-	payload, err := json.Marshal(Message)
+	payload, err := json.Marshal(msg)
 	if err != nil {
 		return err
 	}
